@@ -1,13 +1,18 @@
 class Node:
+    
     def __init__(self,data=None,Next=None):
         self.data=data
         self.Next=Next
+        
 class linkedlist:
+    
     def __init__(self):
         self.head=None
+        
     def insert_at_beginning(self,data):
         node=Node(data,self.head)
         self.head=node
+        
     def insert_at_end(self,data):
         if self.head is None:
             self.head=Node(data,None)
@@ -16,6 +21,7 @@ class linkedlist:
         while itr.Next:
             itr=itr.Next
         itr.Next=Node(data,None)
+        
     def prinT(self):
         if self.head is None:
             print("linked list is empty")
@@ -23,15 +29,18 @@ class linkedlist:
         while itr:
             print(itr.data,"-->",end="")
             itr=itr.Next
+            
     def insert_after(self,prev_node,data):
         if prev_node is None:
             print('Node must be in Linked list')
         node=Node(data,prev_node.Next)
         prev_node.Next=node
+        
     def insert_list(self,data_list):
         self.head=None
         for data in data_list:
             self.insert_at_end(data)
+            
     def sizeof_linkedlist(self):
         c=0
         itr=self.head
@@ -39,6 +48,7 @@ class linkedlist:
             c=c+1
             itr=itr.Next
         return c
+    
     def deleteat_value(self,value):
         if self.head.data==value:
             self.head=self.head.Next
@@ -49,6 +59,7 @@ class linkedlist:
                     itr.Next=itr.Next.Next
                     break
                 itr=itr.Next
+                
     def deleteat_index(self,index):
         if index<0 or index>=self.sizeof_linkedlist():
             raise Exception("invalid index")
@@ -62,6 +73,7 @@ class linkedlist:
                 break
             itr=itr.Next
             c=c+1
+            
     def search_key(self,key):
         if self.head is None:
             print('linked list is empty')
@@ -72,6 +84,7 @@ class linkedlist:
                     return True
                 itr=itr.Next
             return False
+        
     def sort_linkedlist(self):
         itr=self.head
         next=None

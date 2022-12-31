@@ -20,7 +20,8 @@ g.add_edge(2,4,8)
 inf=99999999999
 selected=[None for _ in range(g.vertices)]
 E=0
-selected[3]=True
+import random
+selected[random.randint(0,g.vertices-1)]=True 
 while E<g.vertices-1:
     x,y=0,0
     Min=inf
